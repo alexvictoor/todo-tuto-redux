@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 
-let AddTodoForm = ({ onSubmit } : any) => {
+const AddTodoForm = ({ onSubmit } : any) => {
   let input: any;
 
   return (

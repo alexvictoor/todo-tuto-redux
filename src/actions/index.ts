@@ -1,31 +1,37 @@
+import { Action } from 'Redux'
 
-export interface Action<T> {
-    type: string,
-    payload: T
+export interface AddTodoAction extends Action {
+  id: number,
+  text: string
 }
-
 
 let nextTodoId = 0
-export const addTodo = (text: string) => {
+export const addTodo = (text: string): AddTodoAction => {
   return {
     type: 'ADD_TODO',
-    payload: {
-      id: nextTodoId++,
-      text
-    }
+    id: nextTodoId++,
+    text
   }
 }
 
-export const setVisibilityFilter = (filter: any) => {
+export interface SetVisibilityFilterAction extends Action {
+  filter: string
+}
+
+export const setVisibilityFilter = (filter: string): SetVisibilityFilterAction => {
   return {
     type: 'SET_VISIBILITY_FILTER',
-    payload: filter
+    filter
   }
 }
 
-export const toggleTodo = (id: any) => {
+export interface ToggleTodoAction extends Action {
+  id: number
+}
+
+export const toggleTodo = (id: any): ToggleTodoAction => {
   return {
     type: 'TOGGLE_TODO',
-    payload: id
+    id
   }
 }

@@ -2,7 +2,7 @@ import * as React from 'react'
 
 interface LinkProps {
   active: boolean,
-  onClick: () => any,
+  onClick: () => void,
   children: any
 }
 
