@@ -7,32 +7,24 @@ export interface TodoItem {
   text: string,
   completed: boolean
 } 
-type TodoState = TodoItem | undefined;
 
-const todo = (state: TodoState, action: Action): TodoState => {
-  switch (action.type) {
-    case 'ADD_TODO': {
-      const { id, text } = action as AddTodoAction
-      return {
-        id,
-        text,
-        completed: false
-      }
-    }
-    case 'TOGGLE_TODO': {
-      const { id } = action as ToggleTodoAction
-      const item = state as TodoItem;
-      if (item.id !== id) {
-        return state
-      }
-
-      return Object.assign({}, state, {
-        completed: !item.completed
-      })
-    }
-    default:
-      return state
+const createTodo = (action: AddTodoAction): TodoItem => {
+  const { id, text } = action;
+  return {
+    id,
+    text,
+    completed: false
   }
+}
+
+const toggle = (item: TodoItem, action: ToggleTodoAction): TodoItem => {
+  const { id } = action
+  if (item.id !== id) {
+    return item
+  }
+  return Object.assign({}, item, {
+    completed: !item.completed
+  })
 }
 
 const todos = (state: TodoItem[] = [], action: Action) => {
@@ -40,11 +32,11 @@ const todos = (state: TodoItem[] = [], action: Action) => {
     case 'ADD_TODO':
       return [
         ...state,
-        todo(undefined, action)
+        createTodo(action as AddTodoAction)
       ]
     case 'TOGGLE_TODO':
       return state.map(t =>
-        todo(t, action)
+        toggle(t, action as ToggleTodoAction)
       )
     default:
       return state

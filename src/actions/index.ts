@@ -14,6 +14,17 @@ export const addTodo = (text: string): AddTodoAction => {
   }
 }
 
+export interface ToggleTodoAction extends Action {
+  id: number
+}
+
+export const toggleTodo = (id: any): ToggleTodoAction => {
+  return {
+    type: 'TOGGLE_TODO',
+    id
+  }
+}
+
 export interface SetVisibilityFilterAction extends Action {
   filter: string
 }
@@ -25,13 +36,3 @@ export const setVisibilityFilter = (filter: string): SetVisibilityFilterAction =
   }
 }
 
-export interface ToggleTodoAction extends Action {
-  id: number
-}
-
-export const toggleTodo = (id: any): ToggleTodoAction => {
-  return {
-    type: 'TOGGLE_TODO',
-    id
-  }
-}
