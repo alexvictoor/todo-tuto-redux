@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux'
 import todos from './todos'
-import visibilityFilter from './visibilityFilter'
 import { TodoItem } from './todos'
 
 export interface AppState {
@@ -10,7 +9,6 @@ export interface AppState {
 
 const todoApp = combineReducers({
   todos,
-  visibilityFilter
 })
 
 export default todoApp

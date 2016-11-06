@@ -17,30 +17,11 @@ const createTodo = (action: AddTodoAction): TodoItem => {
   }
 }
 
-const toggle = (item: TodoItem, action: ToggleTodoAction): TodoItem => {
-  const { id } = action
-  if (item.id !== id) {
-    return item
-  }
-  return Object.assign({}, item, {
-    completed: !item.completed
-  })
-}
-
 const todos = (state: TodoItem[] = [], action: Action) => {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return [
-        ...state,
-        createTodo(action as AddTodoAction)
-      ]
-    case 'TOGGLE_TODO':
-      return state.map(t =>
-        toggle(t, action as ToggleTodoAction)
-      )
-    default:
-      return state
-  }
+  
+  // TODO (I really mean todo ;) )
+
+  return state
 }
 
 export default todos

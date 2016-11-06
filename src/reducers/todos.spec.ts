@@ -4,7 +4,7 @@ import todos, { TodoItem } from "./todos"
 
 describe('STEP2 - Todos reducer', () => {
 
-  it('should add a todo on default todos', () => {
+  it.skip('should add a todo on default todos', () => {
     // given
     const action = addTodo("learn typescript");
     // when
@@ -14,7 +14,7 @@ describe('STEP2 - Todos reducer', () => {
     expect(newState[0].text).to.equal(action.text);
   });
 
-  it('should add a non completed todo on todos', () => {
+  it.skip('should add a non completed todo on todos', () => {
     // given
     const action = addTodo("learn redux");
     // when
@@ -25,7 +25,7 @@ describe('STEP2 - Todos reducer', () => {
     expect(newState[1].completed).to.be.false;
   });
 
-  it('should return a new array when adding a todo', () => {
+  it.skip('should return a new array when adding a todo', () => {
     // given
     const action = addTodo("learn redux");
     const existingTodos = [{id:0, text: "learn es6", completed: true }];
@@ -36,7 +36,7 @@ describe('STEP2 - Todos reducer', () => {
     expect(newState).to.have.length(2);
   });
 
-  it('should handle any action type', () => {
+  it.skip('should handle any action type', () => {
     // given
     const action = { type: "@@WEIRD@@" };
     const existingTodos = [{id:0, text: "learn es6", completed: true }];
@@ -50,7 +50,7 @@ describe('STEP2 - Todos reducer', () => {
 
 describe('STEP4 - Todos reducer', () => {
 
-  it('should toggle a todo', () => {
+  it.skip('should toggle a todo', () => {
     // given
     const existingTodos = [{id:0, text: "learn redux", completed: false }];
     const action = toggleTodo(0);
@@ -61,7 +61,7 @@ describe('STEP4 - Todos reducer', () => {
     expect(newState[0].completed).to.be.true;
   });
 
-  it('should not toggle a todo with different id', () => {
+  it.skip('should not toggle a todo with different id', () => {
     // given
     const existingTodos = [
       {id:0, text: "learn typescript", completed: true }, 

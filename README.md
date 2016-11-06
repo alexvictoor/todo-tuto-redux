@@ -7,7 +7,7 @@ The code is the one from official redux todolist, translated to TypeScript.
 Install everything with npm and aunch webpack-dev-server   
 You will also need the redux dev tools in your favorite browser
 
-## Step 1 - dispatch "add todo" action
+## Step 1 - dispatch "add todo" actions
 An AddTodoForm component has already been written. However this component is not (yet) connected to the redux store.
 Hence it cannot dispatch actions...  
 
@@ -18,7 +18,7 @@ Hence it cannot dispatch actions...
 Here we only need "map dispatch to props". You need to complete the AddTodo component. It is a kind of decorator of AddTodoForm, this kind of components are called *higher order components* by the React community. 
 Anyway use the following code fragment to get a properly working component:
 
-AddTodo.tsx
+containers/AddTodo.tsx
 ```
 const mapDispatchToProps = (dispatch: Dispatch<any>) => {
   return {
@@ -52,7 +52,18 @@ To build a Todolist component you need to:
 - import react-redux connect function
 - apply this connect method using a "map state to props" function on TodoList
 
-Obviously you can copy/paste most of the content of AddTodo.tsx  
+Obviously you can copy/paste most of the content of AddTodo.tsx
+Below a hint on "map state to state" signature:  
+```
+const mapStateToProps = (state: AppState) => {
+  return { 
+
+    // ???
+
+  }
+}
+```  
+
 Once your new VisibleTodoList is ready, you can use it in App.tsx  
 
 # Step 4 - toggle todos
@@ -73,6 +84,7 @@ To make filters work you need to:
 - connect properly FilterLink.tsx (fill the gaps)
 - implement a new reducer (reducers/visibilityFilter.ts)
 - update the redux store instantiation (reducers/index.ts)  
+- and finaly update "map state to props" function of VisibleTodoList component in order to display all, completed or only active todos.
 
 That's all folks!
 

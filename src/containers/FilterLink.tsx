@@ -6,15 +6,13 @@ import Link from '../components/Link'
 
 const mapStateToProps = (state: AppState, ownProps: any) => {
   return {
-    active: ownProps.filter === state.visibilityFilter
+   
   }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<any>, ownProps: any) => {
   return {
-    onClick: () => {
-      dispatch(setVisibilityFilter(ownProps.filter))
-    }
+
   }
 }
 
